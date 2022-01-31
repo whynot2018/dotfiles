@@ -101,7 +101,7 @@ packages (more details are below).
 **You can download and run the install script with this 1 liner:**
 
 ```sh
-bash <(curl -sS https://raw.githubusercontent.com/nickjj/dotfiles/master/install)
+bash <(curl -sS https://raw.githubusercontent.com/whynot2018/dotfiles/master/install)
 ```
 
 *If you're not comfortable blindly running a script on the internet, that's no
@@ -114,7 +114,7 @@ files directly without using any script.*
 You can also run the script without installing system packages:
 
 ```sh
-bash <(curl -sS https://raw.githubusercontent.com/nickjj/dotfiles/master/install) --skip-system-packages
+bash <(curl -sS https://raw.githubusercontent.com/whynot2018/dotfiles/master/install) --skip-system-packages
 ```
 
 That above could be useful if you're using a non-Debian based distro of Linux,
