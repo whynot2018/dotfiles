@@ -12,6 +12,9 @@ call plug#begin('~/.vim/plugged')
 " Atom One Dark / Light theme.
 Plug 'rakr/vim-one'
 
+" solarized8 Community theme.
+Plug 'lifepillar/vim-solarized8'
+
 " Gruvbox Community theme.
 Plug 'gruvbox-community/gruvbox'
 
@@ -34,6 +37,10 @@ Plug 'lambdalisue/fern-mapping-mark-children.vim'
 
 " Helpers for moving and manipulating files / directories.
 Plug 'tpope/vim-eunuch'
+
+" Edit C/C++ programs in Vim/gVim.
+"Plug 'WolfgangMehner/c-support'
+Plug 'WolfgangMehner/vim-plugins'
 
 " Run a diff on 2 directories.
 Plug 'will133/vim-dirdiff'
@@ -147,8 +154,12 @@ if !exists('g:gruvbox_contrast_light')
 endif
 
 " Set the color scheme.
-colorscheme gruvbox
-set background=dark
+"colorscheme gruvbox
+"set background=dark
+
+colorscheme solarized8
+" colorscheme one
+set background=light
 
 " Specific colorscheme settings (must come after setting your colorscheme).
 if (g:colors_name == 'gruvbox')
@@ -334,10 +345,12 @@ map <Leader>ev :tabnew $MYVIMRC<CR>
 map <Leader>sv :source $MYVIMRC<CR>
 
 " Toggle spell check.
-map <F5> :setlocal spell!<CR>
+nnoremap <F5> :setlocal spell!<CR>
+inoremap <F5> <C-o>:setlocal spell!<CR>
 
 " Toggle relative line numbers and regular line numbers.
-nmap <F6> :set invrelativenumber<CR>
+nnoremap <F6> :set relativenumber!<CR>
+inoremap <F6> <C-o>:set relativenumber!<CR>
 
 " Copy the current buffer's path to your clipboard.
 nmap cp :let @+ = expand("%")<CR>
@@ -347,9 +360,8 @@ nmap cp :let @+ = expand("%")<CR>
 nnoremap <leader>sp :normal! mz[s1z=`z<CR>
 
 " Toggle visually showing all whitespace characters.
-noremap <F7> :set list!<CR>
+nnoremap <F7> :set list!<CR>
 inoremap <F7> <C-o>:set list!<CR>
-cnoremap <F7> <C-c>:set list!<CR>
 
 " Move 1 more lines up or down in normal and visual selection modes.
 nnoremap <C-k> :m .-2<CR>==
@@ -662,11 +674,11 @@ else
   let test#strategy='vimterminal'
 endif
 
-let test#python#pytest#executable='docker-compose exec web py.test'
+let test#python#pytest#executable='docker compose exec web py.test'
 
-let test#ruby#rails#executable='docker-compose exec -e RAILS_ENV=test webpacker rails test'
+let test#ruby#rails#executable='docker compose exec -e RAILS_ENV=test js rails test'
 
-let test#elixir#exunit#executable='docker-compose exec -e MIX_ENV=test web mix test'
+let test#elixir#exunit#executable='docker compose exec -e MIX_ENV=test web mix test'
 
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
