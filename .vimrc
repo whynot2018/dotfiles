@@ -6,6 +6,10 @@
 " Plugins
 " -----------------------------------------------------------------------------
 
+" User Info
+let g:user_name = "davud"
+let g:user_email = "davud@davud"
+
 " Specify a directory for plugins.
 call plug#begin('~/.vim/plugged')
 
